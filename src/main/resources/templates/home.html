@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-5">
+        <a class="btn btn-primary" th:href="@{'/add'}">Add Category</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sno</th>
+                    <th>Name</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="category : ${categories}">
+                    <td th:text="${category.id}"></td>
+                    <td th:text="${category.categoryName}"></td>
+                    <td><a th:href="@{/edit/{id} (id=${category.id})}">Edit</a></td>
+                    <td><a th:href="@{/delete/{id} (id=${category.id})}">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
